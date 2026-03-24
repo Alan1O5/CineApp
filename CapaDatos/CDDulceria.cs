@@ -231,7 +231,7 @@ namespace CapaDatos
             return tabla;
         }
 
-        public void InsertarMovimiento(string producto, string tipoMovimiento, int cantidad)
+        public void InsertarMovimiento(string producto, string tipoMovimiento, int cantidad, string usuario, string proveedor)
         {
             try
             {
@@ -243,6 +243,10 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@tipo_movimiento", tipoMovimiento);
                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
 
+                    // Agregamos los nuevos parámetros
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@proveedor", proveedor);
+
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -252,5 +256,49 @@ namespace CapaDatos
                 throw new Exception("Error al registrar en bitácora: " + ex.Message);
             }
         }
+        public DataTable BuscarPorCodigo(string codigo)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Conn))
+                using (SqlCommand cmd = new SqlCommand("sp_buscar_producto_codigo", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigo", codigo);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar código: " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable ListarProductosParaVenta()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (System.Data.SqlClient.SqlConnection cn = new System.Data.SqlClient.SqlConnection(Conexion.Conn))
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("sp_listar_productos_venta", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al cargar catálogo: " + ex.Message);
+            }
+            return dt;
+        }
+
     }
 }

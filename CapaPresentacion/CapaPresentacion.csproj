@@ -111,6 +111,12 @@
     <Compile Include="FrmMenuDulceria.Designer.cs">
       <DependentUpon>FrmMenuDulceria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPuntoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPuntoVenta.Designer.cs">
+      <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarDulceria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuDulceria.resx">
       <DependentUpon>FrmMenuDulceria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPuntoVenta.resx">
+      <DependentUpon>FrmPuntoVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarDulceria.resx">
       <DependentUpon>FrmRegistrarDulceria.cs</DependentUpon>

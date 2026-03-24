@@ -16,6 +16,7 @@ namespace CapaPresentacion
         public FrmMenu()
         {
             InitializeComponent();
+            CustomUI.LoadDefaultStyle(this);
         }
 
         public FrmMenu(string usuario)
@@ -124,6 +125,13 @@ namespace CapaPresentacion
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             FrmMenuDulceria form = new FrmMenuDulceria();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnventa_Click(object sender, EventArgs e)
+        {
+            FrmPuntoVenta form = new FrmPuntoVenta();
             form.Show();
             this.Hide();
         }

@@ -35,28 +35,34 @@ namespace CapaPresentacion
         {
             if (txtuser.Text == "" || txtclave.Text == "")
             {
-                MessageBox.Show("Ingrese usuario y contraseña"); return;
+                MessageBox.Show("Ingrese usuario y contraseña");
+                return;
             }
+
             DataTable dt = CNUsuarios.Login(txtuser.Text.Trim(), txtclave.Text.Trim());
+
             if (dt.Rows.Count > 0)
             {
-                
-                    string usuario = dt.Rows[0]["nombre"].ToString();
-                    Session.UsuarioActual = usuario;
 
-                    // Registrar login y guardar IdSesion
-                    int loginId = CNUsuarios.RegistrarLogin(usuario);
-                    Session.LoginId = loginId;
+                string usuario = dt.Rows[0]["nombre"].ToString();
+                Session.UsuarioActual = usuario;
 
-                    FrmMenu menu = new FrmMenu();
-                    menu.Show();
-                    this.Hide();
-             
+            
+                Session.IdEmpleado = Convert.ToInt32(dt.Rows[0]["idusuario"]);
+
+                int loginId = CNUsuarios.RegistrarLogin(usuario);
+                Session.LoginId = loginId;
+
+                FrmMenu menu = new FrmMenu();
+                menu.Show();
+                this.Hide();
+
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos", "Login",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error); txtclave.Clear(); txtclave.Focus();
+                MessageBox.Show("Usuario o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtclave.Clear();
+                txtclave.Focus();
             }
         }
 

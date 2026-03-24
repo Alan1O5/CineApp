@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaDatos; 
 
 namespace CapaPresentacion
 {
@@ -32,7 +33,7 @@ namespace CapaPresentacion
                 decimal precioCompra = Convert.ToDecimal(txtprecio.Text);
                 decimal precioVenta = precioCompra * 1.10m;
 
-            
+
                 string textoCodigo = "DUL-" + (Insert ? txtnombre.Text.Replace(" ", "") : txtidproducto.Text);
 
                 pictureBox1.Image = GeneradorCodigoBarras.Generar(textoCodigo);
@@ -44,8 +45,13 @@ namespace CapaPresentacion
                         txttipo.Text,
                         precioVenta,
                         Convert.ToInt32(txtstock.Text),
-                        textoCodigo 
+                        textoCodigo
                     );
+
+                    if (resp == "OK")
+                    {
+                        CNDulceria.RegistrarMovimiento(txtnombre.Text, "ENTRADA", Convert.ToInt32(txtstock.Text), Session.UsuarioActual, "Inventario Inicial");
+                    }
                 }
                 else if (Edit)
                 {
@@ -57,9 +63,22 @@ namespace CapaPresentacion
                         txttipo.Text,
                         precioVenta,
                         stockNuevo,
-                        textoCodigo 
+                        textoCodigo
                     );
 
+                    if (resp == "OK")
+                    {
+                        if (stockNuevo < stockOriginal)
+                        {
+                            int cantidadVendida = stockOriginal - stockNuevo;
+                            CNDulceria.RegistrarMovimiento(txtnombre.Text, "SALIDA", cantidadVendida, "Cliente Público", "Venta en Mostrador");
+                        }
+                        else if (stockNuevo > stockOriginal)
+                        {
+                            int cantidadAgregada = stockNuevo - stockOriginal;
+                            CNDulceria.RegistrarMovimiento(txtnombre.Text, "ENTRADA", cantidadAgregada, Session.UsuarioActual, "Ajuste Manual");
+                        }
+                    }
                 }
 
                 if (resp == "OK")
@@ -78,6 +97,7 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void btncancelar_Click(object sender, EventArgs e)
         {
             new FrmInventarioDulceria().Show();

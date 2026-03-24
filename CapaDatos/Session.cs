@@ -10,5 +10,6 @@ namespace CapaDatos
     {
         public static string UsuarioActual { get; set; }
         public static int LoginId { get; set; }
+        public static int IdEmpleado { get; set; }
     }
 }

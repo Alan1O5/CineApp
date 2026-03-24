@@ -47,6 +47,7 @@
     <Compile Include="CDPeliculas.cs" />
     <Compile Include="CDProveedor.cs" />
     <Compile Include="CDUsuarios.cs" />
+    <Compile Include="CDVentas.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -97,10 +97,20 @@ namespace CapaNegocio
             return Datos.ListarMovimientos();
         }
 
-        public static void RegistrarMovimiento(string producto, string tipoMovimiento, int cantidad)
+        public static void RegistrarMovimiento(string producto, string tipoMovimiento, int cantidad, string usuario, string proveedor)
         {
             CDDulceria Datos = new CDDulceria();
-            Datos.InsertarMovimiento(producto, tipoMovimiento, cantidad);
+            Datos.InsertarMovimiento(producto, tipoMovimiento, cantidad, usuario, proveedor);
+        }
+        public static DataTable BuscarPorCodigo(string codigo)
+        {
+            CDDulceria Datos = new CDDulceria();
+            return Datos.BuscarPorCodigo(codigo);
+        }
+        public static DataTable ListarProductosParaVenta()
+        {
+            CDDulceria Datos = new CDDulceria();
+            return Datos.ListarProductosParaVenta();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -18,7 +19,7 @@ namespace CapaPresentacion
 
         public FrmRegistrarPedido(int idProd, string nombreProd, int stockOriginal, string proveedor)
         {
-            CustomUI.LoadDefaultStyle(this); 
+            CustomUI.LoadDefaultStyle(this);
             InitializeComponent();
 
             idProducto = idProd;
@@ -62,6 +63,8 @@ namespace CapaPresentacion
 
                 if (resp == "OK")
                 {
+                    CNDulceria.RegistrarMovimiento(txtProducto.Text, "ENTRADA", cantidadPedida, Session.UsuarioActual, txtProveedor.Text);
+
                     MessageBox.Show(
                         $"Pedido registrado correctamente con el proveedor {txtProveedor.Text}.\n\nEl stock de '{txtProducto.Text}' se actualizó de {stockActual} a {stockNuevo}.",
                         "CineApp",
