@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
 using CapaNegocio;
+using System.IO;
 
 namespace CapaPresentacion
 {
@@ -29,25 +30,40 @@ namespace CapaPresentacion
 
         private void btngenerar_Click(object sender, EventArgs e)
         {
+            string carpeta = @"C:\RespaldosCineapp";
+
+            // ✅ Crear carpeta automáticamente si no existe
+            if (!Directory.Exists(carpeta))
+            {
+                Directory.CreateDirectory(carpeta);
+            }
+
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Archivos de Respaldo SQL (*.bak)|*.bak";
             save.Title = "Guardar Respaldo Mensual";
 
             string mesActual = DateTime.Now.ToString("MM");
             string anioActual = DateTime.Now.ToString("yyyy");
+
             save.FileName = $"Respaldo_Cine_Mes_{mesActual}_{anioActual}.bak";
-            save.InitialDirectory = @"C:\RespaldosCineapp";
+            save.InitialDirectory = carpeta;
+
             if (save.ShowDialog() == DialogResult.OK)
             {
                 Cursor.Current = Cursors.WaitCursor;
+
                 string resp = CNBackup.GenerarBackup(save.FileName);
+
                 Cursor.Current = Cursors.Default;
 
                 if (resp == "OK")
                 {
                     CNBackup.RegistrarHistorial(save.FileName, Session.UsuarioActual);
 
-                    MessageBox.Show("¡Respaldo mensual generado exitosamente en:\n" + save.FileName, "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Respaldo mensual generado exitosamente en:\n" + save.FileName,
+                                    "CineApp",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
 
                     CargarHistorial();
                 }
