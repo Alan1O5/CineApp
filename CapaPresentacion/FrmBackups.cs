@@ -32,14 +32,14 @@ namespace CapaPresentacion
         {
             string carpeta = @"C:\RespaldosCineapp";
 
-            // ✅ Crear carpeta automáticamente si no existe
+            
             if (!Directory.Exists(carpeta))
             {
                 Directory.CreateDirectory(carpeta);
             }
 
             SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "Archivos de Respaldo SQL (*.bak)|*.bak";
+            save.Filter = "Archivos de Respaldo SQL (.bak)|.bak";
             save.Title = "Guardar Respaldo Mensual";
 
             string mesActual = DateTime.Now.ToString("MM");
@@ -52,14 +52,16 @@ namespace CapaPresentacion
             {
                 Cursor.Current = Cursors.WaitCursor;
 
+                
+                CNBackup.RegistrarHistorial(save.FileName, Session.UsuarioActual);
+
+                
                 string resp = CNBackup.GenerarBackup(save.FileName);
 
                 Cursor.Current = Cursors.Default;
 
-                // ✅ Verificar que el archivo realmente existe
-                if (resp == "OK" && File.Exists(save.FileName))
+                if (resp == "OK" && System.IO.File.Exists(save.FileName))
                 {
-                    CNBackup.RegistrarHistorial(save.FileName, Session.UsuarioActual);
 
                     MessageBox.Show("¡Respaldo mensual generado exitosamente en:\n" + save.FileName,
                                     "CineApp",
@@ -70,6 +72,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
+               
                     MessageBox.Show("El respaldo no se creó correctamente o el archivo no existe.",
                                     "Error",
                                     MessageBoxButtons.OK,
@@ -115,7 +118,9 @@ namespace CapaPresentacion
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
 
-                        Application.Restart();
+                        System.Diagnostics.Process.Start(Application.ExecutablePath);
+
+                        Application.Exit();
                     }
                     else
                     {
