@@ -46,7 +46,7 @@
             this.dgvcarrito.Name = "dgvcarrito";
             this.dgvcarrito.RowHeadersWidth = 51;
             this.dgvcarrito.RowTemplate.Height = 24;
-            this.dgvcarrito.Size = new System.Drawing.Size(679, 439);
+            this.dgvcarrito.Size = new System.Drawing.Size(510, 439);
             this.dgvcarrito.TabIndex = 0;
             this.dgvcarrito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcarrito_CellContentClick);
             // 
@@ -99,11 +99,11 @@
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(729, 33);
+            this.dgvProductos.Location = new System.Drawing.Point(573, 33);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersWidth = 51;
             this.dgvProductos.RowTemplate.Height = 24;
-            this.dgvProductos.Size = new System.Drawing.Size(254, 434);
+            this.dgvProductos.Size = new System.Drawing.Size(410, 434);
             this.dgvProductos.TabIndex = 6;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 

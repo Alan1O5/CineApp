@@ -71,6 +71,26 @@ namespace CapaPresentacion
                 FrmAlertaStock frmAlertas = new FrmAlertaStock();
                 frmAlertas.ShowDialog(); 
             }
+            if (Session.UsuarioActual == "Admin") 
+            {
+                btnRespaldos.Visible = true;
+
+                
+                if (!CNBackup.ExisteRespaldoEsteMes())
+                {
+                    MessageBox.Show(
+                        "MANTENIMIENTO REQUERIDO:\n\nAún no se ha generado el respaldo de base de datos correspondiente a este mes.\n\nPor seguridad, te recomendamos ir al módulo de Respaldos y generarlo ahora mismo.",
+                        "Alerta de Segmentación Mensual",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+            }
+            else
+            {
+                
+                btnRespaldos.Visible = false;
+            }
         }
 
         private void btncerrarsesion_Click(object sender, EventArgs e)
@@ -132,6 +152,13 @@ namespace CapaPresentacion
         private void btnventa_Click(object sender, EventArgs e)
         {
             FrmPuntoVenta form = new FrmPuntoVenta();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnRespaldos_Click(object sender, EventArgs e)
+        {
+            FrmBackups form = new FrmBackups();
             form.Show();
             this.Hide();
         }

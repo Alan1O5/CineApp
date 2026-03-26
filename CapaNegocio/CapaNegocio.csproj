@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CNBackups.cs" />
     <Compile Include="CNDulceria.cs" />
     <Compile Include="CNPeliculas.cs" />
     <Compile Include="CNProveedor.cs" />

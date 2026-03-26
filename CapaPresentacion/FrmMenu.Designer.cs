@@ -34,12 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRespaldos = new System.Windows.Forms.Button();
+            this.btnventa = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnventa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -109,6 +110,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.btnRespaldos);
             this.panel1.Controls.Add(this.btnventa);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -124,6 +126,26 @@
             this.panel1.Size = new System.Drawing.Size(551, 734);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnRespaldos
+            // 
+            this.btnRespaldos.Location = new System.Drawing.Point(297, 426);
+            this.btnRespaldos.Name = "btnRespaldos";
+            this.btnRespaldos.Size = new System.Drawing.Size(182, 58);
+            this.btnRespaldos.TabIndex = 11;
+            this.btnRespaldos.Text = "Respaldos";
+            this.btnRespaldos.UseVisualStyleBackColor = true;
+            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
+            // 
+            // btnventa
+            // 
+            this.btnventa.Location = new System.Drawing.Point(59, 422);
+            this.btnventa.Name = "btnventa";
+            this.btnventa.Size = new System.Drawing.Size(190, 63);
+            this.btnventa.TabIndex = 10;
+            this.btnventa.Text = "Punto de Venta";
+            this.btnventa.UseVisualStyleBackColor = true;
+            this.btnventa.Click += new System.EventHandler(this.btnventa_Click);
             // 
             // pictureBox5
             // 
@@ -188,16 +210,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnventa
-            // 
-            this.btnventa.Location = new System.Drawing.Point(59, 422);
-            this.btnventa.Name = "btnventa";
-            this.btnventa.Size = new System.Drawing.Size(190, 63);
-            this.btnventa.TabIndex = 10;
-            this.btnventa.Text = "Punto de Venta";
-            this.btnventa.UseVisualStyleBackColor = true;
-            this.btnventa.Click += new System.EventHandler(this.btnventa_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnventa;
+        private System.Windows.Forms.Button btnRespaldos;
     }
 }
