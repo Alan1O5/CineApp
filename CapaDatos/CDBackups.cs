@@ -125,5 +125,16 @@ namespace CapaDatos
             }
             catch {  }
         }
+
+        public void EliminarRegistro(int idrespaldo)
+        {
+            using (SqlConnection conn = new SqlConnection(Conexion.Conn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM HistorialRespaldos WHERE idrespaldo = @id", conn);
+                cmd.Parameters.AddWithValue("@id", idrespaldo);
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

@@ -56,7 +56,8 @@ namespace CapaPresentacion
 
                 Cursor.Current = Cursors.Default;
 
-                if (resp == "OK")
+                // ✅ Verificar que el archivo realmente existe
+                if (resp == "OK" && File.Exists(save.FileName))
                 {
                     CNBackup.RegistrarHistorial(save.FileName, Session.UsuarioActual);
 
@@ -69,7 +70,10 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show(resp, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El respaldo no se creó correctamente o el archivo no existe.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }
@@ -88,6 +92,16 @@ namespace CapaPresentacion
 
                 if (open.ShowDialog() == DialogResult.OK)
                 {
+                    // ✅ Verificar que el archivo exista antes de restaurar
+                    if (!File.Exists(open.FileName))
+                    {
+                        MessageBox.Show("El archivo seleccionado no existe.",
+                                        "Error",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                        return;
+                    }
+
                     Cursor.Current = Cursors.WaitCursor;
 
                     string resp = CNBackup.RestaurarBackup(open.FileName);
@@ -96,8 +110,12 @@ namespace CapaPresentacion
 
                     if (resp == "OK")
                     {
-                        MessageBox.Show("¡Base de datos restaurada con éxito! El sistema se reiniciará por seguridad.", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Application.Restart(); 
+                        MessageBox.Show("¡Base de datos restaurada con éxito! El sistema se reiniciará por seguridad.",
+                                        "CineApp",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+
+                        Application.Restart();
                     }
                     else
                     {
@@ -111,16 +129,48 @@ namespace CapaPresentacion
         {
             CargarHistorial();
         }
+
         private void CargarHistorial()
         {
             try
             {
-                dgvHistorial.DataSource = CNBackup.ListarHistorial();
+                DataTable dt = CNBackup.ListarHistorial();
+                DataTable dtFiltrado = dt.Clone();
+
+                int eliminados = 0;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string ruta = row["Ruta del Archivo"].ToString().Trim();
+                    int id = Convert.ToInt32(row["Folio"]); 
+
+                    if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
+                    {
+                        dtFiltrado.ImportRow(row);
+                    }
+                    else
+                    {
+                        // ❌ eliminar de BD
+                        CNBackup.EliminarRegistro(id);
+                        eliminados++;
+                    }
+                }
+
+                dgvHistorial.DataSource = dtFiltrado;
 
                 if (dgvHistorial.Columns.Contains("Folio"))
                     dgvHistorial.Columns["Folio"].Visible = false;
 
                 dgvHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // 🔔 Notificación
+                if (eliminados > 0)
+                {
+                    MessageBox.Show($"Se eliminaron {eliminados} respaldos inexistentes del historial.",
+                                    "Limpieza automática",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {

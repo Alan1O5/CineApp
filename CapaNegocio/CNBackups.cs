@@ -32,5 +32,11 @@ namespace CapaNegocio
             CDBackup cd = new CDBackup();
             cd.RegistrarHistorial(nombreArchivo, usuario);
         }
+
+        public static void EliminarRegistro(int idrespaldo)
+        {
+            CDBackup obj = new CDBackup();
+            obj.EliminarRegistro(idrespaldo);
+        }
     }
 }
