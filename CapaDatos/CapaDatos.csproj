@@ -46,6 +46,7 @@
     <Compile Include="CDBackups.cs" />
     <Compile Include="CDDulceria.cs" />
     <Compile Include="CDPeliculas.cs" />
+    <Compile Include="CDPersonal.cs" />
     <Compile Include="CDProveedor.cs" />
     <Compile Include="CDUsuarios.cs" />
     <Compile Include="CDVentas.cs" />

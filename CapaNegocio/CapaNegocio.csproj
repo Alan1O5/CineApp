@@ -45,6 +45,7 @@
     <Compile Include="CNBackups.cs" />
     <Compile Include="CNDulceria.cs" />
     <Compile Include="CNPeliculas.cs" />
+    <Compile Include="CNPersonal.cs" />
     <Compile Include="CNProveedor.cs" />
     <Compile Include="CNUsuarios.cs" />
     <Compile Include="CNVentas.cs" />

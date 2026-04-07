@@ -87,6 +87,12 @@
     <Compile Include="FrmInventarioDulceria.Designer.cs">
       <DependentUpon>FrmInventarioDulceria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPersonal.Designer.cs">
+      <DependentUpon>FrmListadoPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListarPeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
     <Compile Include="FrmRegistrarPelicula.Designer.cs">
       <DependentUpon>FrmRegistrarPelicula.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarPersonal.Designer.cs">
+      <DependentUpon>FrmRegistrarPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +196,9 @@
     <EmbeddedResource Include="FrmInventarioDulceria.resx">
       <DependentUpon>FrmInventarioDulceria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPersonal.resx">
+      <DependentUpon>FrmListadoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListarPeliculas.resx">
       <DependentUpon>FrmListarPeliculas.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarPelicula.resx">
       <DependentUpon>FrmRegistrarPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarPersonal.resx">
+      <DependentUpon>FrmRegistrarPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarProveedor.resx">
       <DependentUpon>FrmRegistrarProveedor.cs</DependentUpon>

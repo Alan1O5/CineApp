@@ -41,14 +41,14 @@ namespace CapaPresentacion
 
             DataTable dt = CNUsuarios.Login(txtuser.Text.Trim(), txtclave.Text.Trim());
 
-            if (dt.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
-
                 string usuario = dt.Rows[0]["nombre"].ToString();
                 Session.UsuarioActual = usuario;
 
-            
-                Session.IdEmpleado = Convert.ToInt32(dt.Rows[0]["idusuario"]);
+                Session.TipoAcceso = dt.Rows[0]["tipo_acceso"].ToString();
+
+                Session.IdEmpleado = Convert.ToInt32(dt.Rows[0]["idempleado"]);
 
                 int loginId = CNUsuarios.RegistrarLogin(usuario);
                 Session.LoginId = loginId;
@@ -56,7 +56,6 @@ namespace CapaPresentacion
                 FrmMenu menu = new FrmMenu();
                 menu.Show();
                 this.Hide();
-
             }
             else
             {
@@ -65,7 +64,6 @@ namespace CapaPresentacion
                 txtclave.Focus();
             }
         }
-
         private void btnsalir_Click_1(object sender, EventArgs e)
         {
             this.Close();

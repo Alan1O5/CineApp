@@ -41,6 +41,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnpersonal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -110,6 +111,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.btnpersonal);
             this.panel1.Controls.Add(this.btnRespaldos);
             this.panel1.Controls.Add(this.btnventa);
             this.panel1.Controls.Add(this.pictureBox5);
@@ -129,9 +131,9 @@
             // 
             // btnRespaldos
             // 
-            this.btnRespaldos.Location = new System.Drawing.Point(297, 426);
+            this.btnRespaldos.Location = new System.Drawing.Point(291, 422);
             this.btnRespaldos.Name = "btnRespaldos";
-            this.btnRespaldos.Size = new System.Drawing.Size(182, 58);
+            this.btnRespaldos.Size = new System.Drawing.Size(188, 62);
             this.btnRespaldos.TabIndex = 11;
             this.btnRespaldos.Text = "Respaldos";
             this.btnRespaldos.UseVisualStyleBackColor = true;
@@ -210,6 +212,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnpersonal
+            // 
+            this.btnpersonal.Location = new System.Drawing.Point(59, 506);
+            this.btnpersonal.Name = "btnpersonal";
+            this.btnpersonal.Size = new System.Drawing.Size(190, 60);
+            this.btnpersonal.TabIndex = 12;
+            this.btnpersonal.Text = "Personal";
+            this.btnpersonal.UseVisualStyleBackColor = true;
+            this.btnpersonal.Click += new System.EventHandler(this.btnpersonal_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,5 +257,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnventa;
         private System.Windows.Forms.Button btnRespaldos;
+        private System.Windows.Forms.Button btnpersonal;
     }
 }

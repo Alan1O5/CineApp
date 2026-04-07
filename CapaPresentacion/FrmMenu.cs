@@ -27,17 +27,15 @@ namespace CapaPresentacion
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            label1.Text = Session.UsuarioActual;
+            label1.Text =  Session.UsuarioActual;
 
-            // 🔔 ALERTAS DE INVENTARIO
             DataTable dtAlertas = CNProveedor.GenerarAlertas(10);
 
             if (dtAlertas.Rows.Count > 0)
             {
                 System.Media.SystemSounds.Exclamation.Play();
-
                 MessageBox.Show(
-                    $"¡ATENCIÓN! Tienes {dtAlertas.Rows.Count} producto(s) a punto de agotarse.\n\nEl sistema abrirá la ventana de pedidos para que contactes a los proveedores.",
+                    $"¡ATENCIÓN! Tienes {dtAlertas.Rows.Count} producto(s) a punto de agotarse.",
                     "Alerta de Inventario",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -47,21 +45,23 @@ namespace CapaPresentacion
                 frmAlertas.ShowDialog();
             }
 
-            // 🔐 CONTROL ADMIN
-            if (Session.UsuarioActual == "Admin")
+           
+            if (Session.TipoAcceso == "Administrador")
             {
                 btnRespaldos.Visible = true;
-
-                // 🔥 SISTEMA AUTOMÁTICO DE RESPALDOS
+                btnpersonal.Visible = true;
                 VerificarSistemaRespaldos();
             }
             else
             {
                 btnRespaldos.Visible = false;
+                btnpersonal.Visible = false;
+
+                if (Session.TipoAcceso == "Dulceria")
+                {
+                }
             }
         }
-
-        // 🔥 MÉTODO PRINCIPAL DE RESPALDOS
         private void VerificarSistemaRespaldos()
         {
             try
@@ -75,7 +75,6 @@ namespace CapaPresentacion
                     string ruta = row["Ruta del Archivo"].ToString().Trim();
                     int id = Convert.ToInt32(row["Folio"]);
 
-                    // ❌ Si no existe el archivo → eliminar de BD
                     if (string.IsNullOrEmpty(ruta) || !File.Exists(ruta))
                     {
                         CNBackup.EliminarRegistro(id);
@@ -83,7 +82,6 @@ namespace CapaPresentacion
                     }
                 }
 
-                // 🔔 Notificación de limpieza
                 if (eliminados > 0)
                 {
                     MessageBox.Show(
@@ -228,12 +226,17 @@ namespace CapaPresentacion
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // vacío
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // vacío
+        }
+
+        private void btnpersonal_Click(object sender, EventArgs e)
+        {
+            FrmListadoPersonal form = new FrmListadoPersonal();
+            form.Show();
+            this.Hide();
         }
     }
 }
