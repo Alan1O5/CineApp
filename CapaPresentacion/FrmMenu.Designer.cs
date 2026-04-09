@@ -34,15 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRespaldos = new System.Windows.Forms.Button();
-            this.btnventa = new System.Windows.Forms.Button();
+            this.btnpersonal = new System.Windows.Forms.PictureBox();
+            this.bntrespaldos = new System.Windows.Forms.PictureBox();
+            this.btnventa = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnpersonal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpersonal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bntrespaldos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnventa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,9 +65,10 @@
             this.btnlistar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlistar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlistar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnlistar.Location = new System.Drawing.Point(63, 187);
+            this.btnlistar.Location = new System.Drawing.Point(53, 181);
+            this.btnlistar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnlistar.Name = "btnlistar";
-            this.btnlistar.Size = new System.Drawing.Size(187, 49);
+            this.btnlistar.Size = new System.Drawing.Size(210, 61);
             this.btnlistar.TabIndex = 2;
             this.btnlistar.Text = "&Listado de peliculas";
             this.btnlistar.UseVisualStyleBackColor = false;
@@ -78,9 +82,10 @@
             this.btncerrarsesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrarsesion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncerrarsesion.ForeColor = System.Drawing.SystemColors.Menu;
-            this.btncerrarsesion.Location = new System.Drawing.Point(210, 652);
+            this.btncerrarsesion.Location = new System.Drawing.Point(229, 853);
+            this.btncerrarsesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btncerrarsesion.Name = "btncerrarsesion";
-            this.btncerrarsesion.Size = new System.Drawing.Size(158, 45);
+            this.btncerrarsesion.Size = new System.Drawing.Size(178, 56);
             this.btncerrarsesion.TabIndex = 5;
             this.btncerrarsesion.Text = "&Cerrar";
             this.btncerrarsesion.UseVisualStyleBackColor = false;
@@ -90,9 +95,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 697);
+            this.label1.Location = new System.Drawing.Point(52, 871);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cine";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -102,9 +107,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(39, 61);
+            this.label2.Location = new System.Drawing.Point(26, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(472, 59);
+            this.label2.Size = new System.Drawing.Size(570, 70);
             this.label2.TabIndex = 1;
             this.label2.Text = "Selecciona una opcion";
             // 
@@ -112,7 +117,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.btnpersonal);
-            this.panel1.Controls.Add(this.btnRespaldos);
+            this.panel1.Controls.Add(this.bntrespaldos);
             this.panel1.Controls.Add(this.btnventa);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -123,39 +128,57 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btncerrarsesion);
             this.panel1.Controls.Add(this.btnlistar);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(14, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 734);
+            this.panel1.Size = new System.Drawing.Size(620, 918);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnRespaldos
+            // btnpersonal
             // 
-            this.btnRespaldos.Location = new System.Drawing.Point(291, 422);
-            this.btnRespaldos.Name = "btnRespaldos";
-            this.btnRespaldos.Size = new System.Drawing.Size(188, 62);
-            this.btnRespaldos.TabIndex = 11;
-            this.btnRespaldos.Text = "Respaldos";
-            this.btnRespaldos.UseVisualStyleBackColor = true;
-            this.btnRespaldos.Click += new System.EventHandler(this.btnRespaldos_Click);
+            this.btnpersonal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnpersonal.Image = ((System.Drawing.Image)(resources.GetObject("btnpersonal.Image")));
+            this.btnpersonal.Location = new System.Drawing.Point(37, 633);
+            this.btnpersonal.Name = "btnpersonal";
+            this.btnpersonal.Size = new System.Drawing.Size(255, 160);
+            this.btnpersonal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnpersonal.TabIndex = 15;
+            this.btnpersonal.TabStop = false;
+            this.btnpersonal.Click += new System.EventHandler(this.btnpersonal_Click_1);
+            // 
+            // bntrespaldos
+            // 
+            this.bntrespaldos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntrespaldos.Image = ((System.Drawing.Image)(resources.GetObject("bntrespaldos.Image")));
+            this.bntrespaldos.Location = new System.Drawing.Point(308, 455);
+            this.bntrespaldos.Name = "bntrespaldos";
+            this.bntrespaldos.Size = new System.Drawing.Size(255, 160);
+            this.bntrespaldos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.bntrespaldos.TabIndex = 14;
+            this.bntrespaldos.TabStop = false;
+            this.bntrespaldos.Click += new System.EventHandler(this.bntrespaldos_Click);
             // 
             // btnventa
             // 
-            this.btnventa.Location = new System.Drawing.Point(59, 422);
+            this.btnventa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnventa.Image = ((System.Drawing.Image)(resources.GetObject("btnventa.Image")));
+            this.btnventa.Location = new System.Drawing.Point(38, 455);
             this.btnventa.Name = "btnventa";
-            this.btnventa.Size = new System.Drawing.Size(190, 63);
-            this.btnventa.TabIndex = 10;
-            this.btnventa.Text = "Punto de Venta";
-            this.btnventa.UseVisualStyleBackColor = true;
-            this.btnventa.Click += new System.EventHandler(this.btnventa_Click);
+            this.btnventa.Size = new System.Drawing.Size(255, 160);
+            this.btnventa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnventa.TabIndex = 13;
+            this.btnventa.TabStop = false;
+            this.btnventa.Click += new System.EventHandler(this.btnventa_Click_1);
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(14, 686);
+            this.pictureBox5.Location = new System.Drawing.Point(16, 858);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox5.Size = new System.Drawing.Size(39, 40);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
@@ -164,9 +187,10 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(291, 273);
+            this.pictureBox4.Location = new System.Drawing.Point(309, 288);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(226, 118);
+            this.pictureBox4.Size = new System.Drawing.Size(254, 148);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
@@ -176,9 +200,10 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(49, 273);
+            this.pictureBox3.Location = new System.Drawing.Point(37, 288);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(223, 118);
+            this.pictureBox3.Size = new System.Drawing.Size(251, 148);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -189,9 +214,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(302, 146);
+            this.pictureBox2.Location = new System.Drawing.Point(322, 129);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(192, 121);
+            this.pictureBox2.Size = new System.Drawing.Size(216, 151);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -204,37 +230,33 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(26, 148);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 106);
+            this.pictureBox1.Size = new System.Drawing.Size(262, 132);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnpersonal
-            // 
-            this.btnpersonal.Location = new System.Drawing.Point(59, 506);
-            this.btnpersonal.Name = "btnpersonal";
-            this.btnpersonal.Size = new System.Drawing.Size(190, 60);
-            this.btnpersonal.TabIndex = 12;
-            this.btnpersonal.Text = "Personal";
-            this.btnpersonal.UseVisualStyleBackColor = true;
-            this.btnpersonal.Click += new System.EventHandler(this.btnpersonal_Click);
-            // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(572, 755);
+            this.ClientSize = new System.Drawing.Size(644, 944);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpersonal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bntrespaldos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnventa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -255,8 +277,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button btnventa;
-        private System.Windows.Forms.Button btnRespaldos;
-        private System.Windows.Forms.Button btnpersonal;
+        private System.Windows.Forms.PictureBox btnventa;
+        private System.Windows.Forms.PictureBox bntrespaldos;
+        private System.Windows.Forms.PictureBox btnpersonal;
     }
 }

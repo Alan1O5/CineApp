@@ -48,13 +48,13 @@ namespace CapaPresentacion
            
             if (Session.TipoAcceso == "Administrador")
             {
-                btnRespaldos.Visible = true;
+                bntrespaldos.Visible = true;
                 btnpersonal.Visible = true;
                 VerificarSistemaRespaldos();
             }
             else
             {
-                btnRespaldos.Visible = false;
+                bntrespaldos.Visible = false;
                 btnpersonal.Visible = false;
 
                 if (Session.TipoAcceso == "Dulceria")
@@ -210,19 +210,19 @@ namespace CapaPresentacion
             this.Hide();
         }
 
-        private void btnventa_Click(object sender, EventArgs e)
+        /*private void btnventa_Click(object sender, EventArgs e)
         {
             FrmPuntoVenta form = new FrmPuntoVenta();
             form.Show();
             this.Hide();
-        }
+        }*/
 
-        private void btnRespaldos_Click(object sender, EventArgs e)
+        /*private void btnRespaldos_Click(object sender, EventArgs e)
         {
             FrmBackups form = new FrmBackups();
             form.Show();
             this.Hide();
-        }
+        }*/
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -232,7 +232,28 @@ namespace CapaPresentacion
         {
         }
 
-        private void btnpersonal_Click(object sender, EventArgs e)
+        /*private void btnpersonal_Click(object sender, EventArgs e)
+        {
+            FrmListadoPersonal form = new FrmListadoPersonal();
+            form.Show();
+            this.Hide();
+        }*/
+
+        private void btnventa_Click_1(object sender, EventArgs e)
+        {
+            FrmPuntoVenta form = new FrmPuntoVenta();
+            form.Show();
+            this.Hide();
+        }
+
+        private void bntrespaldos_Click(object sender, EventArgs e)
+        {
+            FrmBackups form = new FrmBackups();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnpersonal_Click_1(object sender, EventArgs e)
         {
             FrmListadoPersonal form = new FrmListadoPersonal();
             form.Show();
