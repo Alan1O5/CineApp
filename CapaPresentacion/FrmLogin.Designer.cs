@@ -65,12 +65,13 @@
             // 
             // txtuser
             // 
-            this.txtuser.BackColor = System.Drawing.Color.LightGray;
+            this.txtuser.BackColor = System.Drawing.Color.White;
+            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtuser.Location = new System.Drawing.Point(31, 133);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(312, 31);
+            this.txtuser.Size = new System.Drawing.Size(312, 24);
             this.txtuser.TabIndex = 2;
             this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged_1);
             // 
@@ -87,13 +88,14 @@
             // 
             // txtclave
             // 
-            this.txtclave.BackColor = System.Drawing.Color.LightGray;
+            this.txtclave.BackColor = System.Drawing.Color.White;
+            this.txtclave.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtclave.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtclave.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtclave.Location = new System.Drawing.Point(31, 221);
             this.txtclave.Name = "txtclave";
             this.txtclave.PasswordChar = '*';
-            this.txtclave.Size = new System.Drawing.Size(312, 31);
+            this.txtclave.Size = new System.Drawing.Size(312, 24);
             this.txtclave.TabIndex = 4;
             // 
             // btnsiguiente
@@ -118,9 +120,9 @@
             this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsalir.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnsalir.Location = new System.Drawing.Point(268, 365);
+            this.btnsalir.Location = new System.Drawing.Point(268, 361);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(75, 23);
+            this.btnsalir.Size = new System.Drawing.Size(75, 29);
             this.btnsalir.TabIndex = 6;
             this.btnsalir.Text = "&Salir";
             this.btnsalir.UseVisualStyleBackColor = true;
@@ -160,7 +162,7 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(399, 444);
             this.Controls.Add(this.panelLogin);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";

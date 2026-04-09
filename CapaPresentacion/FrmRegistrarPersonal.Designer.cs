@@ -83,9 +83,9 @@
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(274, 481);
+            this.btncancelar.Location = new System.Drawing.Point(274, 473);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(75, 23);
+            this.btncancelar.Size = new System.Drawing.Size(82, 31);
             this.btncancelar.TabIndex = 51;
             this.btncancelar.Text = "&Cancelar";
             this.btncancelar.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(180, 481);
+            this.btnguardar.Location = new System.Drawing.Point(170, 473);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(75, 23);
+            this.btnguardar.Size = new System.Drawing.Size(85, 31);
             this.btnguardar.TabIndex = 50;
             this.btnguardar.Text = "&Guardar";
             this.btnguardar.UseVisualStyleBackColor = true;
@@ -213,6 +213,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 16);
             this.label1.TabIndex = 37;
+            this.label1.Tag = "Titulo";
             this.label1.Text = "Registrar Nuevo Personal";
             // 
             // txttelefono

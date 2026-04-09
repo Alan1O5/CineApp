@@ -259,5 +259,10 @@ namespace CapaPresentacion
             form.Show();
             this.Hide();
         }
+
+        private void texto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

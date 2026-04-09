@@ -32,7 +32,7 @@
             this.btnlistar = new System.Windows.Forms.Button();
             this.btncerrarsesion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.texto = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnpersonal = new System.Windows.Forms.PictureBox();
             this.bntrespaldos = new System.Windows.Forms.PictureBox();
@@ -65,10 +65,9 @@
             this.btnlistar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlistar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlistar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnlistar.Location = new System.Drawing.Point(53, 181);
-            this.btnlistar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnlistar.Location = new System.Drawing.Point(47, 145);
             this.btnlistar.Name = "btnlistar";
-            this.btnlistar.Size = new System.Drawing.Size(210, 61);
+            this.btnlistar.Size = new System.Drawing.Size(187, 49);
             this.btnlistar.TabIndex = 2;
             this.btnlistar.Text = "&Listado de peliculas";
             this.btnlistar.UseVisualStyleBackColor = false;
@@ -82,10 +81,9 @@
             this.btncerrarsesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrarsesion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncerrarsesion.ForeColor = System.Drawing.SystemColors.Menu;
-            this.btncerrarsesion.Location = new System.Drawing.Point(229, 853);
-            this.btncerrarsesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btncerrarsesion.Location = new System.Drawing.Point(204, 682);
             this.btncerrarsesion.Name = "btncerrarsesion";
-            this.btncerrarsesion.Size = new System.Drawing.Size(178, 56);
+            this.btncerrarsesion.Size = new System.Drawing.Size(158, 45);
             this.btncerrarsesion.TabIndex = 5;
             this.btncerrarsesion.Text = "&Cerrar";
             this.btncerrarsesion.UseVisualStyleBackColor = false;
@@ -95,23 +93,25 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 871);
+            this.label1.Location = new System.Drawing.Point(46, 697);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cine";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // texto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(26, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(570, 70);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Selecciona una opcion";
+            this.texto.AutoSize = true;
+            this.texto.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.texto.ForeColor = System.Drawing.Color.DarkRed;
+            this.texto.Location = new System.Drawing.Point(23, 18);
+            this.texto.Name = "texto";
+            this.texto.Size = new System.Drawing.Size(472, 59);
+            this.texto.TabIndex = 1;
+            this.texto.Tag = "Titulo";
+            this.texto.Text = "Selecciona una opcion";
+            this.texto.Click += new System.EventHandler(this.texto_Click);
             // 
             // panel1
             // 
@@ -124,14 +124,13 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.texto);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btncerrarsesion);
             this.panel1.Controls.Add(this.btnlistar);
-            this.panel1.Location = new System.Drawing.Point(14, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(620, 918);
+            this.panel1.Size = new System.Drawing.Size(551, 734);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -139,9 +138,10 @@
             // 
             this.btnpersonal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnpersonal.Image = ((System.Drawing.Image)(resources.GetObject("btnpersonal.Image")));
-            this.btnpersonal.Location = new System.Drawing.Point(37, 633);
+            this.btnpersonal.Location = new System.Drawing.Point(33, 506);
+            this.btnpersonal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnpersonal.Name = "btnpersonal";
-            this.btnpersonal.Size = new System.Drawing.Size(255, 160);
+            this.btnpersonal.Size = new System.Drawing.Size(227, 128);
             this.btnpersonal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnpersonal.TabIndex = 15;
             this.btnpersonal.TabStop = false;
@@ -151,9 +151,10 @@
             // 
             this.bntrespaldos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bntrespaldos.Image = ((System.Drawing.Image)(resources.GetObject("bntrespaldos.Image")));
-            this.bntrespaldos.Location = new System.Drawing.Point(308, 455);
+            this.bntrespaldos.Location = new System.Drawing.Point(274, 364);
+            this.bntrespaldos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bntrespaldos.Name = "bntrespaldos";
-            this.bntrespaldos.Size = new System.Drawing.Size(255, 160);
+            this.bntrespaldos.Size = new System.Drawing.Size(227, 128);
             this.bntrespaldos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.bntrespaldos.TabIndex = 14;
             this.bntrespaldos.TabStop = false;
@@ -163,9 +164,10 @@
             // 
             this.btnventa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnventa.Image = ((System.Drawing.Image)(resources.GetObject("btnventa.Image")));
-            this.btnventa.Location = new System.Drawing.Point(38, 455);
+            this.btnventa.Location = new System.Drawing.Point(34, 364);
+            this.btnventa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnventa.Name = "btnventa";
-            this.btnventa.Size = new System.Drawing.Size(255, 160);
+            this.btnventa.Size = new System.Drawing.Size(227, 128);
             this.btnventa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnventa.TabIndex = 13;
             this.btnventa.TabStop = false;
@@ -175,10 +177,9 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(16, 858);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(14, 686);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(39, 40);
+            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
@@ -187,10 +188,9 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(309, 288);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(275, 230);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(254, 148);
+            this.pictureBox4.Size = new System.Drawing.Size(226, 118);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
@@ -200,10 +200,9 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(37, 288);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(33, 230);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(251, 148);
+            this.pictureBox3.Size = new System.Drawing.Size(223, 118);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -214,10 +213,9 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(322, 129);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(286, 103);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(216, 151);
+            this.pictureBox2.Size = new System.Drawing.Size(192, 121);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -230,10 +228,9 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 148);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 118);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 132);
+            this.pictureBox1.Size = new System.Drawing.Size(233, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -241,13 +238,12 @@
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(644, 944);
+            this.ClientSize = new System.Drawing.Size(572, 755);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
@@ -270,7 +266,7 @@
         private System.Windows.Forms.Button btnlistar;
         private System.Windows.Forms.Button btncerrarsesion;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label texto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
