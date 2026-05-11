@@ -93,5 +93,10 @@ namespace CapaPresentacion
             listado.Show();
             this.Hide();
         }
+
+        private void txtapellidos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

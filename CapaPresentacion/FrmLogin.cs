@@ -53,7 +53,9 @@ namespace CapaPresentacion
                 int loginId = CNUsuarios.RegistrarLogin(usuario);
                 Session.LoginId = loginId;
 
-                FrmMenu menu = new FrmMenu();
+                Session.UsuarioActual = txtuser.Text;
+
+                FrmDash menu = new FrmDash();
                 menu.Show();
                 this.Hide();
             }

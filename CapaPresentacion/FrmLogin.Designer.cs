@@ -48,7 +48,7 @@
             this.label1.ForeColor = System.Drawing.Color.Maroon;
             this.label1.Location = new System.Drawing.Point(114, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 45);
+            this.label1.Size = new System.Drawing.Size(201, 54);
             this.label1.TabIndex = 0;
             this.label1.Text = "CINEAPP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,7 +59,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(28, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 20);
+            this.label2.Size = new System.Drawing.Size(49, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "User";
             // 
@@ -70,7 +70,7 @@
             this.txtuser.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtuser.Location = new System.Drawing.Point(31, 133);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(312, 31);
+            this.txtuser.Size = new System.Drawing.Size(312, 36);
             this.txtuser.TabIndex = 2;
             this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged_1);
             // 
@@ -81,7 +81,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(28, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
+            this.label3.Size = new System.Drawing.Size(59, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Clave";
             // 
@@ -93,7 +93,7 @@
             this.txtclave.Location = new System.Drawing.Point(31, 221);
             this.txtclave.Name = "txtclave";
             this.txtclave.PasswordChar = '*';
-            this.txtclave.Size = new System.Drawing.Size(312, 31);
+            this.txtclave.Size = new System.Drawing.Size(312, 36);
             this.txtclave.TabIndex = 4;
             // 
             // btnsiguiente
@@ -108,7 +108,7 @@
             this.btnsiguiente.Name = "btnsiguiente";
             this.btnsiguiente.Size = new System.Drawing.Size(105, 29);
             this.btnsiguiente.TabIndex = 5;
-            this.btnsiguiente.Text = "&Siguiente";
+            this.btnsiguiente.Text = "&Ingresar";
             this.btnsiguiente.UseVisualStyleBackColor = false;
             this.btnsiguiente.Click += new System.EventHandler(this.btnsiguiente_Click_1);
             // 
@@ -151,7 +151,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(161, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 25);
+            this.label4.Size = new System.Drawing.Size(70, 30);
             this.label4.TabIndex = 7;
             this.label4.Text = "Login";
             // 
