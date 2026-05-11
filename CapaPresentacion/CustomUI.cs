@@ -21,7 +21,7 @@ namespace CapaPresentacion
             actualForm.FormBorderStyle = FormBorderStyle.FixedSingle;
             actualForm.StartPosition = FormStartPosition.CenterScreen;
 
-            
+
             ApplyThemeRecursively(actualForm.Controls);
         }
 
@@ -53,7 +53,7 @@ namespace CapaPresentacion
                     txt.ForeColor = Color.White;
                     txt.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
                 }
-                else if (control is NumericUpDown num) 
+                else if (control is NumericUpDown num)
                 {
                     num.BorderStyle = BorderStyle.FixedSingle;
                     num.BackColor = InputColor;
@@ -69,9 +69,24 @@ namespace CapaPresentacion
                 }
                 else if (control is Label lbl)
                 {
-                    lbl.BackColor = Color.Transparent;
-                    lbl.ForeColor = TextColor;
-                    lbl.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+                    if (control.Tag != null && control.Tag.ToString() == "Titulo")
+                    {
+                        lbl.ForeColor = Color.DarkRed; // Un color más llamativo (Rojo encendido)
+                        lbl.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold | FontStyle.Italic); // Letra más grande
+                        lbl.Paint -= LabelShadow_Paint; // Evitamos duplicar el evento
+                        lbl.Paint += LabelShadow_Paint;
+
+                        // Refrescamos para que se aplique el dibujo
+                        lbl.Invalidate();
+                    }
+
+                    else
+                    {
+                        lbl.BackColor = Color.Transparent;
+                        lbl.ForeColor = TextColor;
+                        lbl.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+                    }
+
                 }
                 else if (control is DataGridView dgv)
                 {
@@ -86,7 +101,7 @@ namespace CapaPresentacion
                     dgv.ColumnHeadersDefaultCellStyle.BackColor = AccentColor;
                     dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
-                    dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AccentColor; 
+                    dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AccentColor;
 
                     dgv.DefaultCellStyle.BackColor = PanelColor;
                     dgv.DefaultCellStyle.ForeColor = TextColor;
@@ -102,13 +117,39 @@ namespace CapaPresentacion
                 {
                     pnl.BackColor = PanelColor;
                 }
-                else if (control is GroupBox grp) 
+                else if (control is GroupBox grp)
                 {
                     grp.BackColor = Color.Transparent;
-                    grp.ForeColor = AccentHover; 
+                    grp.ForeColor = AccentHover;
                     grp.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
                 }
             }
         }
+        private static void LabelShadow_Paint(object sender, PaintEventArgs e)
+        {
+            Label lbl = (Label)sender;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
+            string texto = lbl.Text;
+            Font fuente = lbl.Font;
+
+            
+            using (Brush sombraBrush = new SolidBrush(Color.Black))
+            {
+                e.Graphics.DrawString(texto, fuente, sombraBrush, new PointF(3, 3));
+            }
+
+           
+
+            // DIBUJAMOS EL TEXTO PRINCIPAL
+            using (Brush textoBrush = new SolidBrush(lbl.ForeColor))
+            {
+                e.Graphics.DrawString(texto, fuente, textoBrush, new PointF(0, 0));
+            }
+        }
     }
-}
+
+        }
+    
+
