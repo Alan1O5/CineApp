@@ -17,7 +17,8 @@ namespace CapaPresentacion
         private int idProducto = 0;
         private int stockActual = 0;
 
-        public FrmRegistrarPedido(int idProd, string nombreProd, int stockOriginal, string proveedor)
+        // 1. EL CONSTRUCTOR: Ahora solo pide 3 parámetros (quitamos el string proveedor)
+        public FrmRegistrarPedido(int idProd, string nombreProd, int stockOriginal)
         {
             CustomUI.LoadDefaultStyle(this);
             InitializeComponent();
@@ -26,68 +27,95 @@ namespace CapaPresentacion
             stockActual = stockOriginal;
 
             txtProducto.Text = nombreProd;
-            txtProveedor.Text = proveedor;
             txtstockactual.Text = stockActual.ToString();
         }
 
         private void FrmRegistrarPedido_Load(object sender, EventArgs e)
         {
+            LlenarProveedores(); // Cargamos la lista al abrir
             txtcantidad.Focus();
+        }
+
+        private void LlenarProveedores()
+        {
+            try
+            {
+                DataTable dt = CNProveedor.Listar();
+                cboProveedor.DataSource = dt;
+                cboProveedor.DisplayMember = "nombre";
+                cboProveedor.ValueMember = "idproveedor";
+                cboProveedor.SelectedIndex = -1; // Para que aparezca vacío al inicio
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar proveedores: " + ex.Message);
+            }
         }
 
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
             try
             {
-                string resp = "";
-
-                if (string.IsNullOrWhiteSpace(txtcantidad.Text))
+                // VALIDACIONES
+                if (cboProveedor.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Por favor, ingresa la cantidad que deseas pedir al proveedor.", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtcantidad.Focus();
+                    MessageBox.Show("Por favor, selecciona un proveedor.", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                int cantidadPedida = Convert.ToInt32(txtcantidad.Text);
-
-                if (cantidadPedida <= 0)
+                if (string.IsNullOrWhiteSpace(txtcantidad.Text) || !int.TryParse(txtcantidad.Text, out int cantidadPedida) || cantidadPedida <= 0)
                 {
-                    MessageBox.Show("La cantidad del pedido debe ser mayor a cero.", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtcantidad.Focus();
+                    MessageBox.Show("Ingresa una cantidad válida mayor a cero.", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                int stockNuevo = stockActual + cantidadPedida;
+                // OBTENER DATOS
+                string nombreProveedor = cboProveedor.Text; // Tomamos el nombre del ComboBox
+                decimal precioUnitario = 0; // Aquí podrías usar un txtPrecio si lo agregas luego
 
-                resp = CNDulceria.ActualizarStock(idProducto, stockNuevo);
+                // PROCESAR
+                string resp = CNDulceria.ProcesarEntradaMercancia(
+                    idProducto,
+                    txtProducto.Text,
+                    cantidadPedida,
+                    nombreProveedor,
+                    Session.UsuarioActual,
+                    precioUnitario
+                );
 
-                if (resp == "OK")
+                if (resp.StartsWith("OK"))
                 {
-                    CNDulceria.RegistrarMovimiento(txtProducto.Text, "ENTRADA", cantidadPedida, Session.UsuarioActual, txtProveedor.Text);
-
+                    string folio = resp.Split('|')[1];
                     MessageBox.Show(
-                        $"Pedido registrado correctamente con el proveedor {txtProveedor.Text}.\n\nEl stock de '{txtProducto.Text}' se actualizó de {stockActual} a {stockNuevo}.",
-                        "CineApp",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
+                        $"Pedido registrado con el Folio #{folio}.\nProveedor: {nombreProveedor}\nProducto: {txtProducto.Text}",
+                        "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Information
                     );
-
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar el pedido: " + resp, "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + resp, "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Por favor ingresa un número válido. Detalle: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cboProveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // No es necesario código aquí por ahora
+        }
+
+        private void txtProducto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

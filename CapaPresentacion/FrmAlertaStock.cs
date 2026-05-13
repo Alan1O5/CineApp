@@ -29,7 +29,7 @@ namespace CapaPresentacion
                 int stockActual = Convert.ToInt32(dgvalertas.Rows[e.RowIndex].Cells["StockActual"].Value);
                 string proveedor = dgvalertas.Rows[e.RowIndex].Cells["NombreComercial"].Value.ToString();
 
-                FrmRegistrarPedido frmPedido = new FrmRegistrarPedido(idProd, nombreProd, stockActual, proveedor);
+                FrmRegistrarPedido frmPedido = new FrmRegistrarPedido(idProd, nombreProd, stockActual);
                 frmPedido.ShowDialog();
 
                 CargarAlertas();

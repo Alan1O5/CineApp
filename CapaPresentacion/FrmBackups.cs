@@ -23,8 +23,8 @@ namespace CapaPresentacion
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            FrmMenu form = new FrmMenu();
-            form.Show();
+            //FrmMenu form = new FrmMenu();
+            //form.Show();
             this.Hide();
         }
 

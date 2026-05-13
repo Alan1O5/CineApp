@@ -54,8 +54,8 @@ namespace CapaPresentacion
         }
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            FrmMenuDulceria form = new FrmMenuDulceria();
-            form.Show();
+            //FrmMenuDulceria form = new FrmMenuDulceria();
+            //form.Show();
             this.Hide();
         }
 
@@ -71,10 +71,30 @@ namespace CapaPresentacion
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            FrmRegistrarDulceria frm = new FrmRegistrarDulceria();
-            frm.Insert = true;
-            frm.Show();
-            this.Hide();
+            // 1. Validar que haya una fila seleccionada
+            if (dgvdulceria.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor, seleccione un producto de la lista para registrar el pedido.");
+                return;
+            }
+
+            // 2. Extraer los datos de la fila seleccionada
+            int id = Convert.ToInt32(dgvdulceria.CurrentRow.Cells["idproducto"].Value);
+            string nombre = dgvdulceria.CurrentRow.Cells["nombre"].Value.ToString();
+            int stock = Convert.ToInt32(dgvdulceria.CurrentRow.Cells["stock"].Value);
+
+            // Aquí puedes poner un nombre por defecto o abrir un pequeño prompt para el proveedor
+            string proveedor = "Proveedor General";
+
+            // 3. Pasar los argumentos al constructor (Esto quita el error de la imagen image_910639.png)
+            FrmRegistrarDulceria form = new FrmRegistrarDulceria();
+
+            // 4. Abrir el formulario en el Dash
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+            }
         }
 
         private void bnteditar_Click(object sender, EventArgs e)
@@ -88,8 +108,14 @@ namespace CapaPresentacion
             frm.txtprecio.Text = dgvdulceria.CurrentRow.Cells["precio"].Value.ToString();
             frm.txtstock.Text = dgvdulceria.CurrentRow.Cells["stock"].Value.ToString();
 
-            frm.Show();
-            this.Hide();
+            
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(frm);
+
+            }
+            //this.Hide();
         }
 
         private void btneliminar_Click(object sender, EventArgs e)

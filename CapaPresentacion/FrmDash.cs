@@ -1,8 +1,11 @@
-﻿using CapaDatos;
-using System;
+﻿using System;
+using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.IO;
 using CapaDatos;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -27,6 +30,41 @@ namespace CapaPresentacion
 
         private void FrmDash_Load(object sender, EventArgs e)
         {
+
+            DataTable dtAlertas = CNProveedor.GenerarAlertas(10);
+
+            if (dtAlertas.Rows.Count > 0)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show(
+                    $"¡ATENCIÓN! Tienes {dtAlertas.Rows.Count} producto(s) a punto de agotarse.",
+                    "Alerta de Inventario",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                FrmAlertaStock frmAlertas = new FrmAlertaStock();
+                frmAlertas.ShowDialog();
+            }
+
+
+            if (Session.TipoAcceso == "Administrador")
+            {
+                btnrespaldo.Visible = true;
+                btnpersonal.Visible = true;
+                btnpersonalup.Visible = true;
+                VerificarSistemaRespaldos();
+            }
+            else
+            {
+                btnrespaldo.Visible = false;
+                btnpersonal.Visible = false;
+                btnpersonalup.Visible = false;
+
+                if (Session.TipoAcceso == "Dulceria")
+                {
+                }
+            }
             lblNombre.Text = Session.UsuarioActual;
 
             // 🔽 Altura inicial (solo botón)
@@ -43,7 +81,7 @@ namespace CapaPresentacion
             btn.Padding = new Padding(10, 0, 10, 0);
         }
         // 🔥 MÉTODO MDI
-        private void AbrirForm(Form formHijo)
+        public void AbrirForm(Form formHijo)
         {
             foreach (Form frm in this.MdiChildren)
             {
@@ -54,6 +92,7 @@ namespace CapaPresentacion
             formHijo.FormBorderStyle = FormBorderStyle.None;
             formHijo.Dock = DockStyle.Fill;
             formHijo.Show();
+            formHijo.Dock = DockStyle.Fill;
         }
 
         // 🎬 PELÍCULAS
@@ -221,5 +260,101 @@ namespace CapaPresentacion
             WindowState = FormWindowState.Minimized;
         }
 
+        private void VerificarSistemaRespaldos()
+        {
+            try
+            {
+                int eliminados = 0;
+
+                DataTable dt = CNBackup.ListarHistorial();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string ruta = row["Ruta del Archivo"].ToString().Trim();
+                    int id = Convert.ToInt32(row["Folio"]);
+
+                    if (string.IsNullOrEmpty(ruta) || !File.Exists(ruta))
+                    {
+                        CNBackup.EliminarRegistro(id);
+                        eliminados++;
+                    }
+                }
+
+                if (eliminados > 0)
+                {
+                    MessageBox.Show(
+                        $"Se eliminaron {eliminados} respaldos inexistentes del sistema.",
+                        "Limpieza automática",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+
+                }
+
+                if (!CNBackup.ExisteRespaldoEsteMes())
+                {
+                    MessageBox.Show(
+                    $"¡ATENCIÓN!, no has realizado el respaldo de este mes, Continua al apartado de respaldos para generarlo", "CineApp",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                    /*string carpeta = @"C:\RespaldosCineapp";
+
+                    if (!Directory.Exists(carpeta))
+                        Directory.CreateDirectory(carpeta);
+
+                    string ruta = $@"{carpeta}\Auto_{DateTime.Now:yyyy_MM}.bak";
+
+                    string resp = CNBackup.GenerarBackup(ruta);
+
+                    if (resp == "OK" && File.Exists(ruta))
+                    {
+                        CNBackup.RegistrarHistorial(ruta, "Sistema");
+
+                        MessageBox.Show(
+                            "Se generó automáticamente el respaldo mensual:\n" + ruta,
+                            "Respaldo automático",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "No se pudo generar el respaldo automático.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }*/
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en sistema de respaldos");
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new FrmListarPeliculas());
+        }
+
+        private void btnpuntoventaup_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new FrmPuntoVenta());
+        }
+
+        private void btninventariodulceriaup_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new FrmInventarioDulceria());
+        }
+
+        private void btnpersonalup_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new FrmListadoPersonal());
+        }
     }
 }

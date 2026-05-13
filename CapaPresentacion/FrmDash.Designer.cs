@@ -31,9 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDash));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnpersonalup = new System.Windows.Forms.PictureBox();
+            this.btninventariodulceriaup = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnpuntoventaup = new System.Windows.Forms.PictureBox();
+            this.btncerrar = new System.Windows.Forms.PictureBox();
+            this.btnmaximizar = new System.Windows.Forms.PictureBox();
+            this.btnminimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.btnrestaurar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.mnupersonal = new System.Windows.Forms.Panel();
             this.btnpersonal = new System.Windows.Forms.Button();
@@ -55,12 +63,16 @@
             this.timerdulceria = new System.Windows.Forms.Timer(this.components);
             this.btncerrarsesion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnminimizar = new System.Windows.Forms.PictureBox();
-            this.btnmaximizar = new System.Windows.Forms.PictureBox();
-            this.btncerrar = new System.Windows.Forms.PictureBox();
-            this.btnrestaurar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpersonalup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btninventariodulceriaup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpuntoventaup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnmaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrestaurar)).BeginInit();
             this.panel2.SuspendLayout();
             this.mnupersonal.SuspendLayout();
             this.mnurespaldo.SuspendLayout();
@@ -70,27 +82,118 @@
             this.mnulistarusuarios.SuspendLayout();
             this.mnulistar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnmaximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnrestaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Brown;
+            this.panel1.Controls.Add(this.btnpersonalup);
+            this.panel1.Controls.Add(this.btninventariodulceriaup);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.btnpuntoventaup);
             this.panel1.Controls.Add(this.btncerrar);
-            this.panel1.Controls.Add(this.btnrestaurar);
             this.panel1.Controls.Add(this.btnmaximizar);
             this.panel1.Controls.Add(this.btnminimizar);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblNombre);
+            this.panel1.Controls.Add(this.btnrestaurar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1355, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // btnpersonalup
+            // 
+            this.btnpersonalup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnpersonalup.Image = ((System.Drawing.Image)(resources.GetObject("btnpersonalup.Image")));
+            this.btnpersonalup.Location = new System.Drawing.Point(744, 5);
+            this.btnpersonalup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnpersonalup.Name = "btnpersonalup";
+            this.btnpersonalup.Size = new System.Drawing.Size(96, 95);
+            this.btnpersonalup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnpersonalup.TabIndex = 16;
+            this.btnpersonalup.TabStop = false;
+            this.btnpersonalup.Click += new System.EventHandler(this.btnpersonalup_Click);
+            // 
+            // btninventariodulceriaup
+            // 
+            this.btninventariodulceriaup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btninventariodulceriaup.Image = ((System.Drawing.Image)(resources.GetObject("btninventariodulceriaup.Image")));
+            this.btninventariodulceriaup.Location = new System.Drawing.Point(575, 8);
+            this.btninventariodulceriaup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btninventariodulceriaup.Name = "btninventariodulceriaup";
+            this.btninventariodulceriaup.Size = new System.Drawing.Size(143, 92);
+            this.btninventariodulceriaup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btninventariodulceriaup.TabIndex = 10;
+            this.btninventariodulceriaup.TabStop = false;
+            this.btninventariodulceriaup.Click += new System.EventHandler(this.btninventariodulceriaup_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(274, 15);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(156, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // btnpuntoventaup
+            // 
+            this.btnpuntoventaup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnpuntoventaup.Image = ((System.Drawing.Image)(resources.GetObject("btnpuntoventaup.Image")));
+            this.btnpuntoventaup.Location = new System.Drawing.Point(449, 15);
+            this.btnpuntoventaup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnpuntoventaup.Name = "btnpuntoventaup";
+            this.btnpuntoventaup.Size = new System.Drawing.Size(104, 83);
+            this.btnpuntoventaup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnpuntoventaup.TabIndex = 14;
+            this.btnpuntoventaup.TabStop = false;
+            this.btnpuntoventaup.Click += new System.EventHandler(this.btnpuntoventaup_Click);
+            // 
+            // btncerrar
+            // 
+            this.btncerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncerrar.Image = ((System.Drawing.Image)(resources.GetObject("btncerrar.Image")));
+            this.btncerrar.Location = new System.Drawing.Point(1318, 3);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(25, 25);
+            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btncerrar.TabIndex = 13;
+            this.btncerrar.TabStop = false;
+            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
+            // 
+            // btnmaximizar
+            // 
+            this.btnmaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnmaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnmaximizar.Image")));
+            this.btnmaximizar.Location = new System.Drawing.Point(1287, 3);
+            this.btnmaximizar.Name = "btnmaximizar";
+            this.btnmaximizar.Size = new System.Drawing.Size(25, 25);
+            this.btnmaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnmaximizar.TabIndex = 11;
+            this.btnmaximizar.TabStop = false;
+            this.btnmaximizar.Click += new System.EventHandler(this.btnmaximizar_Click);
+            // 
+            // btnminimizar
+            // 
+            this.btnminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnminimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnminimizar.Image")));
+            this.btnminimizar.Location = new System.Drawing.Point(1256, 3);
+            this.btnminimizar.Name = "btnminimizar";
+            this.btnminimizar.Size = new System.Drawing.Size(25, 25);
+            this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnminimizar.TabIndex = 10;
+            this.btnminimizar.TabStop = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
             // 
             // pictureBox5
             // 
@@ -130,6 +233,18 @@
             this.lblNombre.TabIndex = 8;
             this.lblNombre.Text = "Cine";
             this.lblNombre.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btnrestaurar
+            // 
+            this.btnrestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnrestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnrestaurar.Image")));
+            this.btnrestaurar.Location = new System.Drawing.Point(1287, 3);
+            this.btnrestaurar.Name = "btnrestaurar";
+            this.btnrestaurar.Size = new System.Drawing.Size(25, 25);
+            this.btnrestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnrestaurar.TabIndex = 12;
+            this.btnrestaurar.TabStop = false;
+            this.btnrestaurar.Click += new System.EventHandler(this.btnrestaurar_Click);
             // 
             // panel2
             // 
@@ -371,53 +486,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // btnminimizar
-            // 
-            this.btnminimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnminimizar.Image")));
-            this.btnminimizar.Location = new System.Drawing.Point(1256, 3);
-            this.btnminimizar.Name = "btnminimizar";
-            this.btnminimizar.Size = new System.Drawing.Size(25, 25);
-            this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnminimizar.TabIndex = 10;
-            this.btnminimizar.TabStop = false;
-            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
-            // 
-            // btnmaximizar
-            // 
-            this.btnmaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnmaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnmaximizar.Image")));
-            this.btnmaximizar.Location = new System.Drawing.Point(1287, 3);
-            this.btnmaximizar.Name = "btnmaximizar";
-            this.btnmaximizar.Size = new System.Drawing.Size(25, 25);
-            this.btnmaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnmaximizar.TabIndex = 11;
-            this.btnmaximizar.TabStop = false;
-            this.btnmaximizar.Click += new System.EventHandler(this.btnmaximizar_Click);
-            // 
-            // btncerrar
-            // 
-            this.btncerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncerrar.Image = ((System.Drawing.Image)(resources.GetObject("btncerrar.Image")));
-            this.btncerrar.Location = new System.Drawing.Point(1318, 3);
-            this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(25, 25);
-            this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btncerrar.TabIndex = 13;
-            this.btncerrar.TabStop = false;
-            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
-            // 
-            // btnrestaurar
-            // 
-            this.btnrestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnrestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnrestaurar.Image")));
-            this.btnrestaurar.Location = new System.Drawing.Point(1287, 3);
-            this.btnrestaurar.Name = "btnrestaurar";
-            this.btnrestaurar.Size = new System.Drawing.Size(25, 25);
-            this.btnrestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnrestaurar.TabIndex = 12;
-            this.btnrestaurar.TabStop = false;
-            this.btnrestaurar.Click += new System.EventHandler(this.btnrestaurar_Click);
-            // 
             // FrmDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -434,7 +502,15 @@
             this.Load += new System.EventHandler(this.FrmDash_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpersonalup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btninventariodulceriaup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnpuntoventaup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnmaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrestaurar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.mnupersonal.ResumeLayout(false);
             this.mnurespaldo.ResumeLayout(false);
@@ -444,10 +520,6 @@
             this.mnulistarusuarios.ResumeLayout(false);
             this.mnulistar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnmaximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnrestaurar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -484,5 +556,9 @@
         private System.Windows.Forms.PictureBox btnrestaurar;
         private System.Windows.Forms.PictureBox btnmaximizar;
         private System.Windows.Forms.PictureBox btnminimizar;
+        private System.Windows.Forms.PictureBox btnpuntoventaup;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox btninventariodulceriaup;
+        private System.Windows.Forms.PictureBox btnpersonalup;
     }
 }

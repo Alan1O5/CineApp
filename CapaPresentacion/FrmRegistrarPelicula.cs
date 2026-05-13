@@ -54,7 +54,13 @@ namespace CapaPresentacion
                     MessageBox.Show("Registro guardado correctamente",
                         "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    new FrmListarPeliculas().Show();
+                   
+                    FrmDash principal = this.MdiParent as FrmDash;
+
+                    if (principal != null)
+                    {
+                        principal.AbrirForm(new FrmListarPeliculas());
+                    }
                     this.Close();
                 }
                 else
@@ -70,7 +76,12 @@ namespace CapaPresentacion
 
         private void btncancelar_Click_1(object sender, EventArgs e)
         {
-            new FrmListarPeliculas().Show();
+            FrmDash principal = this.MdiParent as FrmDash;
+
+            if (principal != null)
+            {
+                principal.AbrirForm(new FrmListarPeliculas());
+            }
             this.Close();
         }
 

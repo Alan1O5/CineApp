@@ -46,38 +46,45 @@ namespace CapaPresentacion
             "Todos",
             "Ediciones",
             "Eliminados"});
-            this.cmbaccion.Location = new System.Drawing.Point(105, 12);
+            this.cmbaccion.Location = new System.Drawing.Point(118, 15);
+            this.cmbaccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbaccion.Name = "cmbaccion";
-            this.cmbaccion.Size = new System.Drawing.Size(121, 24);
+            this.cmbaccion.Size = new System.Drawing.Size(136, 28);
             this.cmbaccion.TabIndex = 0;
             this.cmbaccion.SelectedIndexChanged += new System.EventHandler(this.cmbaccion_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 15);
+            this.label1.Location = new System.Drawing.Point(37, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Acción";
             // 
             // dgvBitacora
             // 
+            this.dgvBitacora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBitacora.Location = new System.Drawing.Point(36, 84);
+            this.dgvBitacora.Location = new System.Drawing.Point(40, 105);
+            this.dgvBitacora.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvBitacora.Name = "dgvBitacora";
             this.dgvBitacora.RowHeadersWidth = 51;
             this.dgvBitacora.RowTemplate.Height = 24;
-            this.dgvBitacora.Size = new System.Drawing.Size(934, 237);
+            this.dgvBitacora.Size = new System.Drawing.Size(1051, 296);
             this.dgvBitacora.TabIndex = 2;
             this.dgvBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellContentClick);
             // 
             // btncerrar
             // 
+            this.btncerrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btncerrar.Location = new System.Drawing.Point(492, 387);
+            this.btncerrar.Location = new System.Drawing.Point(554, 484);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(95, 38);
+            this.btncerrar.Size = new System.Drawing.Size(107, 48);
             this.btncerrar.TabIndex = 3;
             this.btncerrar.Text = "&Cerrar";
             this.btncerrar.UseVisualStyleBackColor = true;
@@ -85,13 +92,14 @@ namespace CapaPresentacion
             // 
             // FrmBitacora
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 450);
+            this.ClientSize = new System.Drawing.Size(1131, 562);
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.dgvBitacora);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbaccion);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBitacora";
             this.Text = "FrmBitacora";
             this.Load += new System.EventHandler(this.FrmBitacora_Load);

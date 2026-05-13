@@ -5,12 +5,14 @@ using System.Windows.Forms;
 using CapaNegocio;
 using CapaDatos;
 
+
 namespace CapaPresentacion
 {
     public partial class FrmPuntoVenta : Form
     {
         private DataTable Carrito = new DataTable();
         private decimal TotalVenta = 0;
+        CDVentas objCapaDatos = new CDVentas();
 
         public FrmPuntoVenta()
         {
@@ -74,24 +76,69 @@ namespace CapaPresentacion
 
         private void btncobrar_Click(object sender, EventArgs e)
         {
+            // Validar que haya algo que cobrar
             if (Carrito.Rows.Count == 0)
             {
                 MessageBox.Show("El carrito está vacío.", "Aviso");
                 return;
             }
 
+            // --- MEJORA: Confirmación de Cobro y Cálculo de Cambio ---
+            // Usamos un InputBox (puedes crear un form pequeño para esto si prefieres algo más estético)
+            string montoPagadoTexto = Microsoft.VisualBasic.Interaction.InputBox(
+                "Total a pagar: " + TotalVenta.ToString("C") + "\n\nIngrese el efectivo recibido:",
+                "Cobro de Venta",
+                "0");
+
+            if (string.IsNullOrEmpty(montoPagadoTexto)) return; // Si cancela, no hacemos nada
+
+            decimal montoPagado = Convert.ToDecimal(montoPagadoTexto);
+
+            if (montoPagado < TotalVenta)
+            {
+                MessageBox.Show("El monto ingresado es insuficiente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            decimal cambio = montoPagado - TotalVenta;
+
+            // --- Lógica de Base de Datos ---
             string respuesta = CNVentas.RealizarVenta(TotalVenta, Session.IdEmpleado, Carrito);
 
-            if (respuesta == "OK")
+            // Suponiendo que 'resultado' es lo que devuelve tu Capa de Negocio/Datos
+            string resultado = objCapaDatos.ProcesarVenta(TotalVenta, Session.IdEmpleado, Carrito);
+
+            // Intentamos ver si el resultado es el número de ID
+            if (int.TryParse(resultado, out int idTicket))
             {
-                MessageBox.Show("¡Venta realizada con éxito!\nCambio: $0.00", "Cobro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmReporteFactura frm = new FrmReporteFactura();
+
+                // Cálculos
+                decimal valorIva = TotalVenta * 0.16m;
+                decimal valorSubtotal = TotalVenta - valorIva;
+
+                // Asignación completa
+                frm.DatosTicket = Carrito.Copy();
+                frm.Folio = idTicket.ToString(); 
+                frm.TotalPagar = TotalVenta.ToString("0.00");
+                frm.Subtotal = valorSubtotal.ToString("0.00");
+                frm.Iva = valorIva.ToString("0.00");
+                frm.Fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                frm.Empleado = "Atendido por: " + Session.UsuarioActual;
+                frm.PagoCon = montoPagado.ToString("0.00");
+                frm.Cambio = cambio.ToString("0.00");
+
+                // Abrir en el Dash
+                FrmDash principal = this.MdiParent as FrmDash;
+                if (principal != null) principal.AbrirForm(frm);
 
                 Carrito.Clear();
                 CalcularTotal();
             }
             else
             {
-                MessageBox.Show(respuesta, "Error Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Si no es un número, es el mensaje de error del catch
+                MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void dgvcarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -119,8 +166,6 @@ namespace CapaPresentacion
         }
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            FrmMenu form= new FrmMenu();
-            form.Show();
             this.Hide();
         }
         private void AgregarAlCarrito(int id, string nombre, decimal precio, int stockDisponible)

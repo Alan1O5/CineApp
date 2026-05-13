@@ -52,6 +52,12 @@ namespace CapaPresentacion
                 if (resp == "OK")
                 {
                     MessageBox.Show("Proveedor guardado correctamente", "CineApp", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FrmDash principal = this.MdiParent as FrmDash;
+
+                    if (principal != null)
+                    {
+                        principal.AbrirForm(new FrmListarProveedores());
+                    }
                     this.Close();
                 }
                 else
@@ -64,19 +70,19 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message);
             }
 
-            FrmListarProveedores form = new FrmListarProveedores();
-            form.Show();
-            this.Hide();
-
         }
     
 
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-         FrmListarProveedores form = new FrmListarProveedores();
-                    form.Show();
-                    this.Hide();
+            FrmDash principal = this.MdiParent as FrmDash;
+
+            if (principal != null)
+            {
+                principal.AbrirForm(new FrmListarProveedores());
+            }
+            this.Close();
         }
 
         private void FrmRegistrarProveedor_Load(object sender, EventArgs e)

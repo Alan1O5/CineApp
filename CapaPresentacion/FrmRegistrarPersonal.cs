@@ -71,9 +71,13 @@ namespace CapaPresentacion
                     if (rpta == "OK")
                     {
                         MessageBox.Show("Operación realizada con éxito");
-                        FrmListadoPersonal listado = new FrmListadoPersonal();
-                        listado.Show();
-                        this.Hide();
+                        FrmDash principal = this.MdiParent as FrmDash;
+
+                        if (principal != null)
+                        {
+                            principal.AbrirForm(new FrmListadoPersonal());
+                        }
+                        this.Close();
                     }
                     else
                     {
@@ -89,9 +93,13 @@ namespace CapaPresentacion
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            FrmListadoPersonal listado = new FrmListadoPersonal();
-            listado.Show();
-            this.Hide();
+            FrmDash principal = this.MdiParent as FrmDash;
+
+            if (principal != null)
+            {
+                principal.AbrirForm(new FrmListadoPersonal());
+            }
+            this.Close();
         }
 
         private void txtapellidos_TextChanged(object sender, EventArgs e)

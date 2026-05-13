@@ -111,7 +111,7 @@
             this.texto.TabIndex = 1;
             this.texto.Tag = "Titulo";
             this.texto.Text = "Selecciona una opcion";
-            this.texto.Click += new System.EventHandler(this.texto_Click);
+            //this.texto.Click += new System.EventHandler(this.texto_Click);
             // 
             // panel1
             // 

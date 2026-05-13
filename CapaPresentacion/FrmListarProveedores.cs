@@ -42,10 +42,15 @@ namespace CapaPresentacion
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            FrmRegistrarProveedor frm = new FrmRegistrarProveedor();
-            frm.Insert = true; 
-            frm.Show();
-            this.Hide();
+            FrmRegistrarProveedor form = new FrmRegistrarProveedor();
+            form.Insert = true;
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+
+            }
+            //this.Hide();
         }
 
         private void btneditar1_Click(object sender, EventArgs e)
@@ -53,7 +58,7 @@ namespace CapaPresentacion
             if (dgvproveedores.CurrentRow != null)
             {
                 FrmRegistrarProveedor frm = new FrmRegistrarProveedor();
-                frm.Edit = true; 
+                frm.Insert = true;
 
                 frm.txtidproveedor.Text = dgvproveedores.CurrentRow.Cells["idproveedor"].Value.ToString();
                 frm.txtnombre.Text = dgvproveedores.CurrentRow.Cells["nombre"].Value.ToString();
@@ -62,8 +67,14 @@ namespace CapaPresentacion
                 frm.txtrazonsocial.Text = dgvproveedores.CurrentRow.Cells["razonsocial"].Value.ToString();
                 frm.txtrfc.Text = dgvproveedores.CurrentRow.Cells["rfc"].Value.ToString();
 
-                frm.Show();
-                this.Hide();
+                
+                FrmDash principal = this.MdiParent as FrmDash;
+                if (principal != null)
+                {
+                    principal.AbrirForm(frm);
+
+                }
+                //this.Hide();
             }
             else
             {
@@ -130,8 +141,8 @@ namespace CapaPresentacion
         private void btnsalir1_Click(object sender, EventArgs e)
         {
             
-            FrmMenuDulceria menu = new FrmMenuDulceria();
-            menu.Show();
+            //FrmMenuDulceria menu = new FrmMenuDulceria();
+            //menu.Show();
             this.Close();
         }
 

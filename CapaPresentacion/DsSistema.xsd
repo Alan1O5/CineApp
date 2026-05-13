@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsSistema" targetNamespace="http://tempuri.org/DsSistema.xsd" xmlns:mstns="http://tempuri.org/DsSistema.xsd" xmlns="http://tempuri.org/DsSistema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsSistema" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DsSistema" msprop:Generator_DataSetName="DsSistema">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CarritoDetalle" msprop:Generator_RowEvHandlerName="CarritoDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="CarritoDetalleRowDeleted" msprop:Generator_RowDeletingName="CarritoDetalleRowDeleting" msprop:Generator_RowEvArgName="CarritoDetalleRowChangeEvent" msprop:Generator_TablePropName="CarritoDetalle" msprop:Generator_RowChangedName="CarritoDetalleRowChanged" msprop:Generator_RowChangingName="CarritoDetalleRowChanging" msprop:Generator_TableClassName="CarritoDetalleDataTable" msprop:Generator_RowClassName="CarritoDetalleRow" msprop:Generator_TableVarName="tableCarritoDetalle" msprop:Generator_UserTableName="CarritoDetalle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Idproducto" msprop:Generator_ColumnPropNameInRow="Idproducto" msprop:Generator_ColumnPropNameInTable="IdproductoColumn" msprop:Generator_ColumnVarNameInTable="columnIdproducto" msprop:Generator_UserColumnName="Idproducto" type="xs:int" minOccurs="0" />
+              <xs:element name="Producto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_UserColumnName="Producto" type="xs:string" minOccurs="0" />
+              <xs:element name="Precio" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_ColumnVarNameInTable="columnPrecio" msprop:Generator_UserColumnName="Precio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_UserColumnName="Cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="Subtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_UserColumnName="Subtotal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

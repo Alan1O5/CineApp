@@ -73,7 +73,7 @@ namespace CapaDatos
                         }
 
                         transaccion.Commit();
-                        respuesta = "OK";
+                        respuesta = idVentaGenerada.ToString();
                     }
                     catch (Exception ex)
                     {
@@ -83,6 +83,56 @@ namespace CapaDatos
                 }
             }
             return respuesta;
+        }
+
+        // Método para obtener los productos que pertenecen a un ticket específico
+        public DataTable ObtenerDetallePorVenta(int idVenta)
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection cn = new SqlConnection(Conexion.Conn))
+            {
+                // Asegúrate de que en 'dulceria' la columna se llame 'nombre'
+                string query = @"SELECT dv.idproducto as IdProducto, p.nombre as Producto, 
+                         dv.cantidad as Cantidad, dv.precio_unitario as Precio
+                         FROM detalle_venta_dulceria dv
+                         INNER JOIN dulceria p ON dv.idproducto = p.idproducto
+                         WHERE dv.idventa = @id";
+
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@id", idVenta);
+                cn.Open();
+                tabla.Load(cmd.ExecuteReader());
+            }
+            return tabla;
+        }
+
+        // Método para obtener la información general de la venta (Total, Fecha, Empleado)
+        public DataRow ObtenerCabeceraVenta(int idVenta)
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection cn = new SqlConnection(Conexion.Conn))
+            {
+                // Usamos 'fechaventa' según image_9b2425.png 
+                // y 'idempleado' según image_9b7a63.png
+                string query = @"SELECT v.total, v.fechaventa, e.nombre 
+                         FROM ventas_dulceria v
+                         INNER JOIN empleado e ON v.idempleado = e.idempleado
+                         WHERE v.idventa = @id";
+
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@id", idVenta);
+
+                try
+                {
+                    cn.Open();
+                    tabla.Load(cmd.ExecuteReader());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al consultar la cabecera: " + ex.Message);
+                }
+            }
+            return tabla.Rows.Count > 0 ? tabla.Rows[0] : null;
         }
     }
 }

@@ -35,20 +35,26 @@
             // 
             // dgvInformes
             // 
+            this.dgvInformes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvInformes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInformes.Location = new System.Drawing.Point(58, 36);
+            this.dgvInformes.Location = new System.Drawing.Point(30, 45);
+            this.dgvInformes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvInformes.Name = "dgvInformes";
             this.dgvInformes.RowHeadersWidth = 51;
             this.dgvInformes.RowTemplate.Height = 24;
-            this.dgvInformes.Size = new System.Drawing.Size(821, 317);
+            this.dgvInformes.Size = new System.Drawing.Size(959, 435);
             this.dgvInformes.TabIndex = 0;
             // 
             // btncerrar
             // 
+            this.btncerrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btncerrar.Location = new System.Drawing.Point(381, 390);
+            this.btncerrar.Location = new System.Drawing.Point(429, 488);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(136, 34);
+            this.btncerrar.Size = new System.Drawing.Size(153, 42);
             this.btncerrar.TabIndex = 1;
             this.btncerrar.Text = "&Cerrar";
             this.btncerrar.UseVisualStyleBackColor = true;
@@ -56,11 +62,12 @@
             // 
             // FrmInformes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 450);
+            this.ClientSize = new System.Drawing.Size(1020, 562);
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.dgvInformes);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmInformes";
             this.Text = "FrmInformes";
             this.Load += new System.EventHandler(this.FrmInformes_Load);

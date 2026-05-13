@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaPresentacion;
 
 namespace CapaPresentacion
 {
@@ -113,19 +114,23 @@ namespace CapaPresentacion
 
         private void btnsalir1_Click(object sender, EventArgs e)
         {
-            FrmMenu form = new FrmMenu();
-            form.Show();
+           
+            
             this.Hide();
         }
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
             FrmRegistrarPelicula form = new FrmRegistrarPelicula();
-
             form.Insert = true;
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+               
+            }
 
-            form.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void btneditar1_Click(object sender, EventArgs e)
@@ -140,8 +145,13 @@ namespace CapaPresentacion
             form.txtgenero.Text = dlistado1.CurrentRow.Cells["genero"].Value.ToString();
             form.txtidioma.Text = dlistado1.CurrentRow.Cells["idioma"].Value.ToString();
 
-            form.Show();
-            this.Hide();
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+
+            }
+            //this.Hide();
         }
 
         private void btneliminar1_Click(object sender, EventArgs e)
@@ -174,6 +184,18 @@ namespace CapaPresentacion
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmReportePeliculas form = new FrmReportePeliculas();
+
+            FrmDash principal = this.MdiParent as FrmDash;
+
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+            }
         }
     }
 }

@@ -47,11 +47,16 @@ namespace CapaPresentacion
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            FrmRegistrarPersonal frm = new FrmRegistrarPersonal();
-            frm.Insert = true;
-            frm.Edit = false;
-            frm.Show();
-            this.Hide();
+            FrmRegistrarPersonal form = new FrmRegistrarPersonal();
+            form.Edit = false;
+            form.Insert = true;
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(form);
+
+            }
+            //this.Hide();
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -65,7 +70,7 @@ namespace CapaPresentacion
             FrmRegistrarPersonal frm = new FrmRegistrarPersonal();
             frm.Insert = false;
             frm.Edit = true;
-
+         
             // Mapeo de datos de la tabla al formulario de registro
             frm.txtidusuario.Text = Convert.ToString(this.dlistado.CurrentRow.Cells["idusuario"].Value);
             frm.txtidempleado.Text = Convert.ToString(this.dlistado.CurrentRow.Cells["idempleado"].Value);
@@ -81,8 +86,13 @@ namespace CapaPresentacion
             if (estado == "ACTIVO") frm.rbactivo.Checked = true;
             else frm.rbinactivo.Checked = true;
 
-            frm.Show();
-            this.Hide();
+            FrmDash principal = this.MdiParent as FrmDash;
+            if (principal != null)
+            {
+                principal.AbrirForm(frm);
+
+            }
+            //this.Hide();
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -111,14 +121,35 @@ namespace CapaPresentacion
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            FrmMenu form = new FrmMenu();
-            form.Show();
+            //FrmMenu form = new FrmMenu();
+            //form.Show();
             this.Close();
         }
 
         private void dlistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnreporte_Click(object sender, EventArgs e)
+        {
+            DataTable tabla = CapaNegocio.CNPersonal.Listar();
+
+            if (tabla != null && tabla.Rows.Count > 0)
+            {
+                FrmReporteEmpleados frm = new FrmReporteEmpleados();
+                frm.DatosPersonal = tabla; // Enviamos los datos a la propiedad que creamos arriba
+
+                // Si usas el Dashboard (FrmDash)
+                if (this.MdiParent is FrmDash principal)
+                {
+                    principal.AbrirForm(frm);
+                }
+                else
+                {
+                    frm.ShowDialog();
+                }
+            }
         }
     }
 }
