@@ -70,6 +70,11 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="CustomUI.cs" />
+    <Compile Include="DsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DsSistema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +200,12 @@
     <Compile Include="FrmReporteEmpleados.Designer.cs">
       <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteEntrada.Designer.cs">
+      <DependentUpon>FrmReporteEntrada.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +288,9 @@
     <EmbeddedResource Include="FrmReporteEmpleados.resx">
       <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteEntrada.resx">
+      <DependentUpon>FrmReporteEntrada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteFactura.resx">
       <DependentUpon>FrmReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,11 +301,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="RptEntradaAlmacen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="RptFactura.rdlc" />
     <EmbeddedResource Include="RptPeliculas.rdlc" />
     <EmbeddedResource Include="RptPersonal.rdlc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DsReportes.xsc">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="DsReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsReportes.xss">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </None>
     <None Include="DsSistema.xsc">
       <DependentUpon>DsSistema.xsd</DependentUpon>
     </None>

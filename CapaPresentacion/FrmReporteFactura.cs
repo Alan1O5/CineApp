@@ -65,7 +65,7 @@ namespace CapaPresentacion
 
             if (principal != null)
             {
-                principal.AbrirForm(new FrmInventarioDulceria());
+                principal.AbrirForm(new FrmBitacoraDulces());
             }
         }
     }

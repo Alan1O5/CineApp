@@ -38,10 +38,10 @@ namespace CapaPresentacion
 
         private void FrmAlertaStock_Load(object sender, EventArgs e)
         {
-            DataTable dtAlertas = CNProveedor.GenerarAlertas(10);
+            // Carga los datos una sola vez llamando a tu método
             CargarAlertas();
-            dgvalertas.DataSource = dtAlertas;
 
+            // Aplica el estilo visual
             foreach (DataGridViewRow row in dgvalertas.Rows)
             {
                 row.DefaultCellStyle.BackColor = System.Drawing.Color.MistyRose;
